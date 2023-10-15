@@ -22,7 +22,6 @@ public class UserController {
         
         var user = this.iUserRepository.findByUserName(userModel.getUserName());
         if(user != null){
-            System.out.println("Usuario Ja existe!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuario ja existe");
         }
 
@@ -32,8 +31,6 @@ public class UserController {
         var useCreated = this.iUserRepository.save(userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(useCreated);
 
-
     }
 
-    
 }
